@@ -4,7 +4,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.regex.Pattern;
 
 class TakeData {
-    static volatile Queue<String> neededList = new ConcurrentLinkedQueue<String>();
+    static Queue<String> neededList = new ConcurrentLinkedQueue<String>();
     private int baseLength;
 
     void findAll(File dir, int depth, String mask) {

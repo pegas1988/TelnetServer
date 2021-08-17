@@ -20,7 +20,7 @@ public class TelnetServer implements Runnable {
         serverSocket = new ServerSocket(port);
         listener = new Thread(this);
         listener.start();
-        dir = this.dir;
+        this.dir = dir;
     }
 
     public void run() {
@@ -40,6 +40,7 @@ public class TelnetServer implements Runnable {
                             OutputStream outputStream = getOutputStream();
                             TakeData.neededList.forEach((i) -> {
                                 try {
+                                    if (outputStream != null)
                                     outputStream.write(Objects.requireNonNull(TakeData.neededList.poll()).getBytes());
                                 } catch (IOException e) {
                                     e.printStackTrace();

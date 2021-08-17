@@ -9,7 +9,7 @@ public class MainClass {
         System.out.println("Enter connection port, please: ");
         int port = Integer.parseInt(scanner.next());
 
-        TelnetServer telnetServer = new TelnetServer(port, rootPath);
-        telnetServer.run();
+        Thread thread = new Thread(new TelnetServer(port, rootPath));
+        thread.start();
     }
 }
